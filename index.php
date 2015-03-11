@@ -1,4 +1,25 @@
-<!DOCTYPE html>
+<?php
+
+/*var pages = {
+    Home: {pageUrl: "index.php?page=home.php"},
+    "About Us": {pageUrl: "index.php?page=about-us.php"},
+    Services: {pageUrl: "index.php?page=services.php"},
+    Contact: {pageUrl: "index.php?page=contact.php"}
+};*/
+//make datastructure that mirrors this javascript object in PHP
+$pages = [
+    'Home'=>['pageUrl'=>'home.php', 'default'=>true],
+    'About Us'=>['pageUrl'=>'about-us.php'],
+    'Services'=>['pageUrl'=>'services.php'],
+    'Contact'=>['pageUrl'=>'contact.php']
+];
+print("GET BEFORE SET");print_r($_GET);
+if(!isset($_GET['page']))
+{
+    $_GET['page'] = 'home.php';
+}
+
+?><!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -9,20 +30,19 @@
     </head>
     
    <body>
+       <pre>
+<?php
+//print_r($_GET);
+?></pre>
 <?php
     include('includes/header.php');
 ?>
        
        <section id="mainArea">
            <?php 
-            if(isset($_GET['page']))
-            {
-                include('pages/'.$_GET['page']);
-            }
-            else 
-            {
-                include('pages/home.php');
-            }
+
+            include('pages/'.$_GET['page']);
+
            ?>
        </section>
 <?php

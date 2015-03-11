@@ -12,7 +12,7 @@ var pages = {
 };*/
 
 $(document).ready(function(){
-    buildNav();
+    //buildNav();
 });
 
 function getContent(link){

@@ -65,6 +65,11 @@ html, body {
     height: 24px;
     margin: 0;
 }
+.selected_menu_item{
+    text-decoration: underline !important;
+    font-weight: bold;
+    color: rgb(6, 180, 175) !important;;
+}
 
 /*
     ==================================
