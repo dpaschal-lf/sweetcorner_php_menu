@@ -40,8 +40,17 @@ if(!isset($_GET['page']))
        
        <section id="mainArea">
            <?php 
-
-            include('pages/'.$_GET['page']);
+            //check to see if file exists
+            if(file_exists('pages/'.$_GET['page']))
+            {
+            //if it does, include it
+                include('pages/'.$_GET['page']);
+            }
+            else  
+            {
+                include('pages/404.php');
+            }
+            //if it doesn't, include our custom 404 page
 
            ?>
        </section>
